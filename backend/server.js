@@ -1,11 +1,26 @@
 const express = require("express");
+const mongoose = require("mongoose");
+const dotenv = require("dotenv");
+
+dotenv.config();
 
 const app = express();
 
-app.get("/", (req, res) => {
-    res.send("SHOPEZ Backend Running");
+app.use(express.json());
+
+mongoose
+.connect(process.env.MONGO_URI)
+.then(() => {
+    console.log("MongoDB Connected");
+
+    app.listen(process.env.PORT, () => {
+        console.log(`Server running on ${process.env.PORT}`);
+    });
+})
+.catch((error) => {
+    console.log(error);
 });
 
-app.listen(5000, () => {
-    console.log("Server running on port 5000");
+app.get("/", (req, res) => {
+    res.send("SHOPEZ Backend Running");
 });
