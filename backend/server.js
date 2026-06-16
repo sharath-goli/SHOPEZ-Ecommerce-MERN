@@ -1,26 +1,79 @@
-const express = require("express");
-const mongoose = require("mongoose");
-const dotenv = require("dotenv");
+const errorHandler =
+require("./middleware/errorMiddleware");
 
-dotenv.config();
+const orderRoutes=
+require(
+"./routes/orderRoutes"
+);
 
-const app = express();
+const userRoutes =
+require(
+"./routes/userRoutes"
+);
 
-app.use(express.json());
+const express =
+require("express");
+
+const mongoose =
+require("mongoose");
+
+const cors =
+require("cors");
+
+require("dotenv")
+.config();
+
+const productRoutes =
+require("./routes/productRoutes");
+
+const app =
+express();
+
+app.use(
+express.json()
+);
+
+app.use(
+cors()
+);
 
 mongoose
-.connect(process.env.MONGO_URI)
-.then(() => {
-    console.log("MongoDB Connected");
+.connect(
+process.env.MONGO_URI
+)
+.then(()=>{
 
-    app.listen(process.env.PORT, () => {
-        console.log(`Server running on ${process.env.PORT}`);
-    });
-})
-.catch((error) => {
-    console.log(error);
+console.log(
+"MongoDB Connected"
+);
+
+app.listen(
+5000,
+()=>{
+
+console.log(
+"Server running"
+);
+
 });
 
-app.get("/", (req, res) => {
-    res.send("SHOPEZ Backend Running");
 });
+
+app.use(
+"/api/products",
+productRoutes
+);
+
+app.use(
+"/api/users",
+userRoutes
+);
+
+app.use(
+"/api/orders",
+orderRoutes
+);
+
+app.use(
+errorHandler
+);
