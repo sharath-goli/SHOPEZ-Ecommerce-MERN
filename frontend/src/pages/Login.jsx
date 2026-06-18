@@ -1,113 +1,51 @@
-import {
-useState
+function Login() {
+  return (
+    <div className="container mt-5">
+
+      <div
+        className="card shadow p-5 mx-auto"
+        style={{
+          maxWidth: "500px"
+        }}
+      >
+
+        <h2 className="mb-4">
+
+          Login
+
+        </h2>
+
+        <input
+          type="email"
+          className="form-control mb-3"
+          placeholder="Email"
+        />
+
+        <input
+          type="password"
+          className="form-control mb-4"
+          placeholder="Password"
+        />
+
+        <button
+          className="
+          btn
+          btn-success
+          w-100
+          "
+          onClick={() =>
+            alert("Login Successful")
+          }
+        >
+
+          Login
+
+        </button>
+
+      </div>
+
+    </div>
+  );
 }
-from "react";
 
-import {
-login
-}
-from "../services/authService";
-
-export default function Login(){
-
-const[
-form,
-
-setForm
-
-]=
-useState({
-
-email:"",
-password:""
-
-});
-
-const submit=
-async()=>{
-
-const res=
-await login(
-form
-);
-
-alert(
-res.data.message
-);
-
-window.location=
-"/products";
-
-};
-
-return(
-
-<div className="container mt-5">
-
-<h2>
-
-Login
-
-</h2>
-
-<input
-className=
-"form-control mb-3"
-
-placeholder=
-"Email"
-
-onChange={
-e=>
-
-setForm({
-
-...form,
-
-email:
-e.target.value
-
-})
-
-}
-/>
-
-<input
-
-type=
-"password"
-
-className=
-"form-control mb-3"
-
-placeholder=
-"Password"
-
-onChange={
-e=>
-
-setForm({
-
-...form,
-
-password:
-e.target.value
-
-})
-
-}
-/>
-
-<button
-type="button"
-className="btn btn-dark"
-onClick={submit}
->
-Login
-</button>
-
-</div>
-
-);
-
-}
+export default Login;

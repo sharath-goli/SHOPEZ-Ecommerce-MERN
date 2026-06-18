@@ -1,75 +1,47 @@
-import {
-Routes,
-Route
-}
-from
-"react-router-dom";
+import { Routes, Route } from "react-router-dom";
 
-import Navbar
-from
-"./components/Navbar";
+import Navbar from "./components/Navbar";
 
-import Home
-from
-"./pages/Home";
+import Home from "./pages/Home";
+import Products from "./pages/Products";
+import Cart from "./pages/Cart";
+import Register from "./pages/Register";
+import Login from "./pages/Login";
 
-import Products
-from
-"./pages/Products";
+function App() {
+  return (
+    <>
 
-import Login
-from
-"./pages/Login";
+      <Navbar />
 
-import Register
-from
-"./pages/Register";
+      <Routes>
 
-import Cart
-from
-"./pages/Cart";
+        <Route path="/" element={<Home />} />
 
-function App(){
+        <Route
+          path="/products"
+          element={<Products />}
+        />
 
-return(
+        <Route
+          path="/cart"
+          element={<Cart />}
+        />
 
-<>
+        <Route
+          path="/register"
+          element={<Register />}
+        />
 
-<Navbar/>
+        <Route
+          path="/login"
+          element={<Login />}
+        />
 
-<Routes>
+      </Routes>
 
-<Route
-path="/"
-element={<Home/>}
-/>
-
-<Route
-path="/products"
-element={<Products/>}
-/>
-
-<Route
-path="/login"
-element={<Login/>}
-/>
-
-<Route
-path="/register"
-element={<Register/>}
-/>
-
-<Route
-path="/cart"
-element={<Cart/>}
-/>
-
-</Routes>
-
-</>
-
-);
-
+    </>
+  );
 }
 
 export default App;

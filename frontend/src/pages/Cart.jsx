@@ -1,51 +1,44 @@
-import {
-useNavigate
-}
-from
-"react-router-dom";
-
 export default function Cart(){
-
-const navigate=
-useNavigate();
 
 return(
 
 <div className="container mt-5">
 
-<h2>
+<h1>
 
-My Cart
+🛒 Your Cart
 
-</h2>
+</h1>
 
 <div
-className=
-"card p-4"
+className="
+card
+p-4
+shadow
+mt-4
+"
 >
+
+<h4>
+
+iPhone 16
+
+</h4>
 
 <p>
 
-Your cart is empty
+₹79,999
 
 </p>
 
 <button
-
-className=
-"btn btn-primary"
-
-onClick={()=>
-
-navigate(
-"/products"
-)
-
-}
-
+className="
+btn
+btn-success
+"
 >
 
-Continue Shopping
+Proceed To Checkout
 
 </button>
 

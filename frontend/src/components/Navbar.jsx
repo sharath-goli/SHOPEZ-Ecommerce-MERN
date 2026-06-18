@@ -1,70 +1,91 @@
 import { Link } from "react-router-dom";
 
-export default function Navbar(){
+export default function Navbar() {
+  return (
+    <nav
+      className="
+      navbar
+      navbar-expand-lg
+      navbar-dark
+      bg-dark
+      sticky-top
+      shadow
+      "
+    >
+      <div className="container">
 
-return(
+        <Link
+          to="/"
+          className="
+          navbar-brand
+          fw-bold
+          fs-3
+          "
+        >
+          🛍 ShopEZ
+        </Link>
 
-<nav
-className=
-"navbar navbar-dark bg-dark px-4"
->
+        <div>
 
-<Link
-className=
-"navbar-brand"
-to="/"
->
+          <Link
+            to="/"
+            className="
+            btn
+            btn-outline-light
+            me-2
+            "
+          >
+            Home
+          </Link>
 
-ShopEZ
+          <Link
+            to="/products"
+            className="
+            btn
+            btn-outline-light
+            me-2
+            "
+          >
+            Products
+          </Link>
 
-</Link>
+          <Link
+            to="/cart"
+            className="
+            btn
+            btn-warning
+            me-2
+            "
+          >
+            Cart
+          </Link>
 
-<div>
+          <Link
+            to="/register"
+            className="
+            btn
+            btn-outline-light
+            me-2
+            "
+          >
+            Register
+          </Link>
 
-<Link
-className=
-"btn btn-outline-light me-2"
-to="/products"
->
-
-Products
-
-</Link>
-
-<Link
-className=
-"btn btn-outline-light me-2"
-to="/cart"
->
-
-Cart
-
-</Link>
-
-<Link
-className=
-"btn btn-warning me-2"
+         <Link
 to="/login"
+className="
+btn
+btn-success
+"
 >
 
 Login
 
 </Link>
 
-<Link
-className=
-"btn btn-success"
-to="/register"
->
+        </div>
 
-Register
-
-</Link>
-
-</div>
-
-</nav>
-
-);
-
+      </div>
+    </nav>
+  );
 }
