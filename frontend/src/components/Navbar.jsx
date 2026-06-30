@@ -61,6 +61,32 @@ export default function Navbar() {
           </Link>
 
           <Link
+to="/orders"
+className="
+btn
+btn-outline-light
+me-2
+"
+>
+
+Orders
+
+</Link>
+
+<Link
+to="/profile"
+className="
+btn
+btn-outline-light
+me-2
+"
+>
+
+Profile
+
+</Link>
+
+          <Link
             to="/register"
             className="
             btn
